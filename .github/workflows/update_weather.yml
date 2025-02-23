@@ -6,6 +6,8 @@ on:
   push:
         branches:
           - main
+        paths:
+          - '.github/workflows/update_weather.yml'
 
 jobs:
   update-weather:
