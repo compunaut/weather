@@ -24,3 +24,5 @@ jobs:
           git add weather.js
           git commit -m 'Update weather'
           git push
+        env:
+         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
