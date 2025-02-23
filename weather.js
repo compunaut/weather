@@ -22,5 +22,7 @@ async function fetchWeather() {
     `;
 }
 
-fetchWeather();
-setInterval(fetchWeather, 3600000); // Update every hour
+document.addEventListener('DOMContentLoaded', (event) => {
+    fetchWeather();
+    setInterval(fetchWeather, 3600000); // Update every hour
+});
