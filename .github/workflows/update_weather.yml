@@ -1,0 +1,24 @@
+name: Update Weather
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  push:
+        branches:
+          - main
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update weather
+        run: |
+          curl -o weather.js https://raw.githubusercontent.com/yourusername/yourrepo/main/weather.js
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add weather.js
+          git commit -m 'Update weather'
+          git push
